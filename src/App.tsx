@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { MobileDatePicker, TimePicker } from '@mui/x-date-pickers';
@@ -28,7 +28,8 @@ function App() {
     }
   }
 
-  let result = getResult()
+  let result = getResult();
+  
 
   const handleDateChange = (newValue: Dayjs | null) => {
     setDateValue(newValue);
@@ -42,7 +43,7 @@ function App() {
 
   //@ts-ignore
   Telegram.WebApp.onEvent("mainButtonClicked", function() {
-    telegram.sendData(result);
+    telegram.sendData(getResult());
   })
 
   return (
