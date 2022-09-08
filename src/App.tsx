@@ -9,9 +9,7 @@ import 'dayjs/locale/ru';
 function App() {
 
   var utc = require('dayjs/plugin/utc');
-  var localizedFormat = require('dayjs/plugin/localizedFormat')
-
-  dayjs.extend(localizedFormat)
+ 
   
 
   dayjs.extend(utc);
