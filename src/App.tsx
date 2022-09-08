@@ -1,24 +1,71 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { MobileDatePicker, TimePicker } from '@mui/x-date-pickers';
+import dayjs, { Dayjs } from 'dayjs';
+import { Button, TextField } from '@mui/material';
+import 'dayjs/locale/ru';
 
 function App() {
+
+  var utc = require('dayjs/plugin/utc');
+  dayjs.extend(utc);
+
+  const [dateValue, setDateValue] = useState<Dayjs | null>(null);
+
+  useEffect(() => {
+    telegram.ready();
+  });
+
+  //@ts-ignore
+  const telegram = window.Telegram.WebApp;
+
+  const getResult = () => {
+    let result = dateValue?.add(3, 'hours').toString();
+    if (result) {
+      result = result.substring(0, 22);
+      return result;
+    }
+  }
+
+  const handleDateChange = (newValue: Dayjs | null) => {
+    setDateValue(newValue);
+    console.log(newValue);
+  };
+
+  const onCheckout = () => {
+    telegram.MainButton.text = "Pay :)";
+    telegram.MainButton.show();
+  }
+
+  //@ts-ignore
+  Telegram.WebApp.onEvent("mainButtonClicked", () => {
+    telegram.sendData(getResult());
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='container'>
+        <h1 className='title'>Select date</h1>
+        <MobileDatePicker
+          label="Date"
+          inputFormat="MM/DD/YYYY"
+          value={dateValue}
+          onChange={handleDateChange}
+          renderInput={(params) => <TextField {...params} />} />
+        <TimePicker
+          label="Time"
+          value={dateValue}
+          onChange={handleDateChange}
+          renderInput={(params) => <TextField {...params} />}
+          ampm={false}
+        />
+        {dateValue && <>
+          <h2 className='title'>Your date is:</h2>
+          <div className='time'>{getResult()}</div>
+          <button className="button" onClick={onCheckout}>Submit</button>
+        </>}
+      </div>
     </div>
   );
 }
