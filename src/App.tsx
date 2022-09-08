@@ -24,7 +24,7 @@ function App() {
   const telegram = window.Telegram.WebApp;
 
   const getResult = () => {
-    let result = dateValue?.add(3, 'hours').format('L LT').toString();
+    let result = dateValue?.format('L LT').toString();
     if (result) {
       result = result.substring(0, 22);
       return result;
