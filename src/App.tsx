@@ -54,25 +54,28 @@ function App() {
 
   return (
     <div className="App">
+      
       <div className='container'>
-        <h1 className='title'>Select date</h1>
+      <h1 className='title'>Выберите дату</h1>
         <MobileDatePicker
           className='input'
           label="Date"
           inputFormat="MM/DD/YYYY"
           value={dateValue}
           onChange={handleDateChange}
-          renderInput={(params) => <TextField {...params} />} />
+          renderInput={(params) => <TextField {...params}/>} 
+          />
         <TimePicker
           className='input'
           label="Time"
           value={dateValue}
           onChange={handleDateChange}
-          renderInput={(params) => <TextField {...params} />}
+          renderInput={(params) => <TextField {...params}/>}
           ampm={false}
         />
+        
         {dateValue && <>
-          <h2 className='title'>Your date is:</h2>
+          <h2 className='title'>Ваша дата:</h2>
           <div className='time'>{result}</div>
           <button className="button" onClick={onCheckout}>Submit</button>
         </>}

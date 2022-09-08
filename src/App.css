@@ -1,14 +1,16 @@
 .App {
-  background-color: #fbab7e;
-  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+  background-color: #d9afd9;
+  background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%);
   height: 100vh;
   max-width: 100vw;
 }
 
 .container {
   max-width: 100%;
+  height: 90%;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   gap: 15px;
   padding: 10px;
@@ -32,6 +34,8 @@
 
 .input {
   width: 75%;
+  /* color: white;
+  border-color: white; */
 }
 
 .button:active {
@@ -40,5 +44,5 @@
 
 .time {
   font-size: 22px;
-  color: white
+  color: white;
 }
