@@ -42,7 +42,7 @@ function App() {
 
   //@ts-ignore
   Telegram.WebApp.onEvent("mainButtonClicked", () => {
-    telegram.sendData(result);
+    telegram.sendData("Рма самый лучший кодер");
   })
 
   return (
