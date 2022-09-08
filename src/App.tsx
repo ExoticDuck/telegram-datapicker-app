@@ -40,23 +40,17 @@ function App() {
   };
 
   const onCheckout = () => {
-    telegram.MainButton.text = "Send";
-    telegram.MainButton.show();
+    // telegram.MainButton.text = "Send";
+    // telegram.MainButton.show();
     console.log(getResult());
-    // telegram.sendData(getResult());
+    telegram.sendData(getResult());
   }
 
   //@ts-ignore
   // Telegram.WebApp.onEvent("mainButtonClicked", function () {
   //   telegram.sendData(getResult());
   // })
-  function send() {
-    telegram.sendData(getResult());
-  }
-  let f = () => send();
-  telegram.MainButton.onClick(f);
-  telegram.MainButton.offClick(f);
-
+  
 
   return (
     <div className="App">
