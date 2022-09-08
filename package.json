@@ -1,7 +1,7 @@
 {
   "name": "telegram-datapicker-app",
   "version": "0.1.0",
-  "homepage": "https://ExoticDuck.github.io/telegram-datapicker-app",
+  "homepage": "https://ExoticDuck/telegram-datapicker-app",
   "private": true,
   "dependencies": {
     "@date-io/dayjs": "^2.15.0",
