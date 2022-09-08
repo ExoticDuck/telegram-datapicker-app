@@ -1,6 +1,7 @@
 {
   "name": "telegram-datapicker-app",
   "version": "0.1.0",
+  "homepage": "https://ExoticDuck.github.io/telegram-datapicker-app",
   "private": true,
   "dependencies": {
     "@date-io/dayjs": "^2.15.0",
@@ -16,6 +17,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "dayjs": "^1.11.5",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -23,6 +25,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
