@@ -30,6 +30,10 @@
   font-size: 20px;
 }
 
+.button:active {
+  transform: scale(0.98);
+}
+
 .time {
   font-size: 22px;
   color: white

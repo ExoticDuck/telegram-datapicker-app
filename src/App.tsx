@@ -28,19 +28,21 @@ function App() {
     }
   }
 
+  let result = getResult()
+
   const handleDateChange = (newValue: Dayjs | null) => {
     setDateValue(newValue);
     console.log(newValue);
   };
 
   const onCheckout = () => {
-    telegram.MainButton.text = "Pay :)";
+    telegram.MainButton.text = "Send";
     telegram.MainButton.show();
   }
 
   //@ts-ignore
   Telegram.WebApp.onEvent("mainButtonClicked", () => {
-    telegram.sendData(getResult());
+    telegram.sendData(result);
   })
 
   return (
@@ -62,7 +64,7 @@ function App() {
         />
         {dateValue && <>
           <h2 className='title'>Your date is:</h2>
-          <div className='time'>{getResult()}</div>
+          <div className='time'>{result}</div>
           <button className="button" onClick={onCheckout}>Submit</button>
         </>}
       </div>
