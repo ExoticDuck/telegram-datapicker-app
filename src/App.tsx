@@ -50,9 +50,13 @@ function App() {
   // Telegram.WebApp.onEvent("mainButtonClicked", function () {
   //   telegram.sendData(getResult());
   // })
-  telegram.MainButton.onClick(function() {
+  function send() {
     telegram.sendData(getResult());
-  });
+  }
+  let f = () => send();
+  telegram.MainButton.onClick(f);
+  telegram.MainButton.offClick(f);
+
 
   return (
     <div className="App">
