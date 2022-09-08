@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/telegram-datapicker-app/static/css/main.736e1c8b.css",
-    "main.js": "/telegram-datapicker-app/static/js/main.0084860c.js",
+    "main.js": "/telegram-datapicker-app/static/js/main.464cab77.js",
     "static/js/787.39b5a8d7.chunk.js": "/telegram-datapicker-app/static/js/787.39b5a8d7.chunk.js",
     "index.html": "/telegram-datapicker-app/index.html",
     "main.736e1c8b.css.map": "/telegram-datapicker-app/static/css/main.736e1c8b.css.map",
-    "main.0084860c.js.map": "/telegram-datapicker-app/static/js/main.0084860c.js.map",
+    "main.464cab77.js.map": "/telegram-datapicker-app/static/js/main.464cab77.js.map",
     "787.39b5a8d7.chunk.js.map": "/telegram-datapicker-app/static/js/787.39b5a8d7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.736e1c8b.css",
-    "static/js/main.0084860c.js"
+    "static/js/main.464cab77.js"
   ]
 }
