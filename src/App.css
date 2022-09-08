@@ -30,6 +30,10 @@
   font-size: 20px;
 }
 
+.input {
+  width: 75%;
+}
+
 .button:active {
   transform: scale(0.98);
 }

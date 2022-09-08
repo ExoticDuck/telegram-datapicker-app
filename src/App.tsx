@@ -9,6 +9,11 @@ import 'dayjs/locale/ru';
 function App() {
 
   var utc = require('dayjs/plugin/utc');
+  var localizedFormat = require('dayjs/plugin/localizedFormat')
+
+  dayjs.extend(localizedFormat)
+  
+
   dayjs.extend(utc);
 
   const [dateValue, setDateValue] = useState<Dayjs | null>(null);
@@ -21,7 +26,7 @@ function App() {
   const telegram = window.Telegram.WebApp;
 
   const getResult = () => {
-    let result = dateValue?.add(3, 'hours').toString();
+    let result = dateValue?.add(3, 'hours').format('L LT').toString();
     if (result) {
       result = result.substring(0, 22);
       return result;
@@ -29,7 +34,7 @@ function App() {
   }
 
   let result = getResult();
-  
+
 
   const handleDateChange = (newValue: Dayjs | null) => {
     setDateValue(newValue);
@@ -39,10 +44,12 @@ function App() {
   const onCheckout = () => {
     telegram.MainButton.text = "Send";
     telegram.MainButton.show();
+    console.log(getResult());
+
   }
 
   //@ts-ignore
-  Telegram.WebApp.onEvent("mainButtonClicked", function() {
+  Telegram.WebApp.onEvent("mainButtonClicked", function () {
     telegram.sendData(getResult());
   })
 
@@ -51,12 +58,14 @@ function App() {
       <div className='container'>
         <h1 className='title'>Select date</h1>
         <MobileDatePicker
+          className='input'
           label="Date"
           inputFormat="MM/DD/YYYY"
           value={dateValue}
           onChange={handleDateChange}
           renderInput={(params) => <TextField {...params} />} />
         <TimePicker
+          className='input'
           label="Time"
           value={dateValue}
           onChange={handleDateChange}
