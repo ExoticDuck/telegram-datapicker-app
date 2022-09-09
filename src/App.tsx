@@ -60,17 +60,17 @@ function App() {
         <MobileDatePicker
           className='input'
           label="Date"
-          inputFormat="MM/DD/YYYY"
+          inputFormat="DD/MM/YYYY"
           value={dateValue}
           onChange={handleDateChange}
-          renderInput={(params) => <TextField {...params}/>} 
+          renderInput={(params) => <TextField focused={false}  {...params}/>} 
           />
         <TimePicker
           className='input'
           label="Time"
           value={dateValue}
           onChange={handleDateChange}
-          renderInput={(params) => <TextField {...params}/>}
+          renderInput={(params) => <TextField focused={false} {...params}/>}
           ampm={false}
         />
         
