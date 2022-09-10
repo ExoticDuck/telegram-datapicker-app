@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { MobileDatePicker, TimePicker } from '@mui/x-date-pickers';
+import { MobileDatePicker, MobileTimePicker, TimePicker } from '@mui/x-date-pickers';
 import dayjs, { Dayjs } from 'dayjs';
 import { Button, TextField } from '@mui/material';
 import 'dayjs/locale/ru';
@@ -65,7 +65,7 @@ function App() {
           onChange={handleDateChange}
           renderInput={(params) => <TextField focused={false}  {...params}/>} 
           />
-        <TimePicker
+        <MobileTimePicker
           className='input'
           label="Time"
           value={dateValue}
